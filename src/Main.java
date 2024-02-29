@@ -2,8 +2,11 @@
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Opt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
         System.out.println("Welcome to java learning");
+      add(5,4);
+    }
+
+    public static void add(int x, int y){
+        System.out.println(x+y);
     }
 }
