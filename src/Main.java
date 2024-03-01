@@ -12,4 +12,21 @@ public class Main {
     public static void multiply(int a, int b){
         System.out.println(a*b);
     }
+
+
+    /*
+    Github:
+            Create a personal branch
+            make your changes
+            commit your change (saved in laptop/local system , still not resent in repository)
+            push to origin (Now available in github repo)
+
+
+
+            How to fetch all branches from github
+              right click --> git -> fetch : fetches all branches in repo
+     */
+    /*
+       datatypes, Object in Java
+     */
 }
