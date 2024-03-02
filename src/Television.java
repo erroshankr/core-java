@@ -38,7 +38,9 @@ public class Television {
 
 
     public static void main(String[] args) { //M2 : predefined method of JVM which is invoked by JVM during execution // Television.main(jgjh)
-        Television t1 = new Television();
+        Television t1 = new Television();  // new : it is used to create an object of class
+        Television t2 = new Television();
+        Television t3 = t1; // t3 is also pointing to t1
         t1.printData();
         System.out.println(t1.l);
     }/// Object: remote controller of class --> blue print
