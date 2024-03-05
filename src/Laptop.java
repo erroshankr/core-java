@@ -4,7 +4,7 @@
  * it does not have return type but returns the object of teh class
  *if we have multiple constructor of class--> same access-specifier & same number of parameter but parameter sequence is different : Constructor overloading
  * access-specifier : TODO
- * this: acts as reference of current class
+ * this: acts as reference of current class object.
  * this: used to differentiate between instance & local variable.
  *this: used to call other overloaded constructor of class.
  * can not be used with static method.  --> bcoz static method does not require object creation.
