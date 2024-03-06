@@ -1,4 +1,4 @@
-//VEG: paneer -> static
+package basics;//VEG: paneer -> static
 //NON-VEG: chicken + paneer -> non-static
 
 public class Student {
@@ -54,7 +54,7 @@ public class Student {
     //    System.out.println(collegeName);
           collegeName="ABC";
    //     printDetails();
-   //     Student.printDetails();
+   //     basics.Student.printDetails();
         Student s1 = new Student();
         System.out.println(s1.getCollegeName());
     }

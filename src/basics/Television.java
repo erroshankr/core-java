@@ -1,3 +1,5 @@
+package basics;
+
 public class Television {
 
     // variable
@@ -37,7 +39,7 @@ public class Television {
     }
 
 
-    public static void main(String[] args) { //M2 : predefined method of JVM which is invoked by JVM during execution // Television.main(jgjh)
+    public static void main(String[] args) { //M2 : predefined method of JVM which is invoked by JVM during execution // basics.Television.main(jgjh)
         Television t1 = new Television();  // new : it is used to create an object of class
         Television t2 = new Television();
         Television t3 = t1; // t3 is also pointing to t1
@@ -58,19 +60,19 @@ public class Television {
 
     // compilation --> syntax checker + interpreter
 
-    class Samsung{  // Television$Samsung
+    class Samsung{  // basics.Television$Samsung
 
         public void getPrice(){
             System.out.println("price is 10000");
         }
 
-        class Harshit{ //Television$Samsung$Harshit.class
+        class Harshit{ //basics.Television$Samsung$Harshit.class
 
         }
 
     }
 
-    class Ashutosh{  // Television$ashutosh.class
+    class Ashutosh{  // basics.Television$ashutosh.class
 
     }
 }

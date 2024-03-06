@@ -1,4 +1,4 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
+package basics;// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 /**
  * new:  create & allocate memory dynamically
  new : used for object creation
@@ -27,41 +27,41 @@ public class Main {
 
         new Demo();
 
-      /* Laptop l1 = new Laptop(); // it invokes zero argument constructor,
+      /* basics.Laptop l1 = new basics.Laptop(); // it invokes zero argument constructor,
        l1.printData();*/
-      /* Laptop l2 = new Laptop("Dell");
+      /* basics.Laptop l2 = new basics.Laptop("Dell");
        l2.printData();
-       Laptop l3 = new Laptop("Apple",1000,"Black");
+       basics.Laptop l3 = new basics.Laptop("Apple",1000,"Black");
        l3.printData();
-       Laptop l4 = new Laptop(150,"HP","White");
+       basics.Laptop l4 = new basics.Laptop(150,"HP","White");
        l4.printData();*/
 
-      /*  Student s1 = new Student();
-        Student s2 = new Student();
+      /*  basics.Student s1 = new basics.Student();
+        basics.Student s2 = new basics.Student();
     //    s1.name= "roshan";
         s1.setName("ramesh");
         s1.setStudentID(567);
         s2.setName("shyam");
         s2.setStudentID(234);
       //  s1.setCollegeName("FIEM-Garia");
-   //     Student.collegeName="xyz";
+   //     basics.Student.collegeName="xyz";
         s1.setCollegeName("abc");
         System.out.println(s1.getCollegeName());
-        Student s3 =new Student();
+        basics.Student s3 =new basics.Student();
         System.out.println(s3.getCollegeName());*/
         /*System.out.println(s1.getName() + " " +s1.getStudentID() + " "+s1.getCollegeName());
         System.out.println(s2.getName() + " " +s2.getStudentID() + " "+s2.getCollegeName());
 
         //s2.name="Shyam";
 
-        Student s3 = new Student();
+        basics.Student s3 = new basics.Student();
         s3.setCollegeName("XYZ");
 
     //    s2.setCollegeName("FIEM");
         System.out.println(s1.getName() + " " +s1.getStudentID() + " "+s1.getCollegeName());
         System.out.println(s2.getName() + " " +s2.getStudentID() + " "+s2.getCollegeName());*/
     //    s1.printDetails(); // static method with object
-    //    Student.printDetails(); // static method without object, we dont need object creation for static method call
+    //    basics.Student.printDetails(); // static method without object, we dont need object creation for static method call
                                 // static method can be accessed by ClassName.methodName();
     //    s1.getDetails(); // can not be called by class-name bcoz it getDetails is non-static method.
 
@@ -90,8 +90,8 @@ public class Main {
      * x= "Ram" : type of x is defined after value initialization -> during runtime --> dynamically-typed
      */
     /**
-     * javac Main.java
-     * java Main.main(String[] ..)
+     * javac basics.Main.java
+     * java basics.Main.main(String[] ..)
      */
 
     static class Demo{ // innner class can be static but outer class can never be static

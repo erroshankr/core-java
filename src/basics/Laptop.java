@@ -1,3 +1,5 @@
+package basics;
+
 /**
  * constructor: used to initialize object
  * constructor:name same as classname with letter-case
@@ -25,13 +27,13 @@ public class Laptop {
         this(1500,"ASUS","Blue"); // new laptop(1500,"Asus","blue")  --> 'this' is used here to call other constructor of the class
         this.printData();
        /*
-       Laptop l1 = new Laptop()
+       basics.Laptop l1 = new basics.Laptop()
        l1.printdata();  // l1 == this
         */
     }
     public Laptop(String name){
         System.out.println("inside 1 argument constructor");
-        this.name = name;  // this == new Laptop();
+        this.name = name;  // this == new basics.Laptop();
     }
 
     public Laptop(String name,int price, String color){
