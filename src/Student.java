@@ -3,9 +3,15 @@
 
 public class Student {
 
+    static {
+        System.out.println("inside static block  of student 1");
+    }
+    static {
+        System.out.println("inside static block  of student 2");
+    }
     private String name;  // default val = null -> "xyz"
     private int studentID;
-    private static String collegeName; // static variable : single copy is created and will be shared among all object
+    public static String collegeName; // static variable : single copy is created and will be shared among all object
 
     public static void printDetails(){  // static method
         System.out.println("inside printDetails method");
@@ -42,6 +48,15 @@ public class Student {
 
     public void setCollegeName(String collegeName) {
         this.collegeName = collegeName;
+    }
+
+    public static void main(String[] args) {
+    //    System.out.println(collegeName);
+          collegeName="ABC";
+   //     printDetails();
+   //     Student.printDetails();
+        Student s1 = new Student();
+        System.out.println(s1.getCollegeName());
     }
 
 }
