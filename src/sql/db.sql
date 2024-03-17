@@ -199,3 +199,51 @@ select marks from students order by marks asc limit 3,1; -- 4th minimum
 
 select distinct marks from students order by marks asc limit 3,1; -- 4th minimum
 select distinct marks from students order by marks desc limit 3,1; -- 4th maximum
+
+SELECT MAX(marks) from students; -- == x
+SELECT * from students where marks  in (SELECT MAX(marks) from students);
+
+SELECT distinct marks from students order by marks desc limit 1,1;
+SELECT distinct marks from students order by marks asc limit 1,1;
+
+SELECT  marks from students order by marks desc limit 1,1;
+SELECT  marks from students order by marks asc limit 1,1;
+
+SELECT dept,MAX(marks) from students group by dept order by MAX(marks) desc;
+SELECT NOW();
+SELECt * from students;
+ALTER TABLE students ADD dob date;
+ALTER table students MODIFY dob timestamp;
+UPDATE students set dob='1990-11-12 09:30:15' where id = 1000;
+UPDATE students set dob='1994-10-13 08:30:15' where id = 1001;
+UPDATE students set dob='1995-09-13 08:36:15' where id = 1002;
+UPDATE students set dob='1996-09-13 07:30:15' where id = 1003;
+UPDATE students set dob='1996-09-14 06:30:15' where id = 1004;
+UPDATE students set dob='1995-05-15 05:30:15' where id = 1005;
+UPDATE students set dob='1993-12-16 05:35:15' where id = 1006;
+-- DATE(YYYY-MM-DD), DATETIME(YYYY-MM-DD HH:MI:SS), TIMESTAMP(YYYY-MM-DD HH:MI:SS.ssss),YEAR (YYYY or YY)
+-- INSERT: always creates a new row
+-- UPDATE: always updated existing row
+SELECT current_timestamp(3);
+SELECT * from students where dob < '1995-01-01 00:00:00';
+SELECT * from students where YEAR(dob) < 1995;
+
+SELECT * from students where dob BETWEEN '1995-01-01 00:00:00' AND '1998-01-01 00:00:00';
+SELECT * from students where MONTH(dob) = 9;
+SELECT * from students where YEAR(dob) = 1996;
+SELECT * from students where DAY(dob) = 13;
+SELECT * from students where dob <= '1996-09-13 23:59:59';
+
+SELECT name,(NOW()-dob) from students;
+SELECT name,DATEDIFF(now(),dob) from students;
+SELECT name,YEAR(now())-YEAR(dob),dob from students;
+
+SELECT * from students where dob >= CURDATE() - INTERVAL 30 YEAR;
+
+SELECT * from students where char_length(name) = 6;
+SELECT CHAR('h','RAKESH') AS MatchPosition;
+SELECT CONCAT(name,dept) from students;
+SELECT REPLACE(name,'R','r') from students;
+SELECT upper(name) from students;
+SELECT REVERSE(name),REVERSE(marks) from students;
+
