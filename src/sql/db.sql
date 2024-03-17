@@ -1,6 +1,6 @@
 CREATE TABLE teachers(
                          name varchar(10),
-                         id int NOT NULL,
+                         id int primary key unique auto_increment,
                          dept varchar(3),
                          salary int
 );
@@ -15,11 +15,15 @@ show tables; -- displays all tables within a schema
 desc teachers; -- describes all columns of the table
 desc students;
 
+-- SELECT table_name from dba_tables;
+
 ALTER TABLE students RENAME COLUMN teacher_id to student_id; -- alter is used to update table structure
 ALTER TABLE teachers RENAME COLUMN id to teacher_id;
 
-INSERT INTO teachers values ('Sanjay',101,'ECE',10000);
+INSERT INTO teachers values ('',5001,'ECE',10000);
+INSERT INTO teachers values (null,5002,'ECE',10000);
 INSERT INTO teachers values ('Sanjeev',101,'ECE',10000);
+select * from teachers;
 
 INSERT INTO teachers values ('Sanju',103,'CSE',15000);
 
@@ -39,15 +43,17 @@ ALTER TABLE teachers MODIFY teacher_id int PRIMARY KEY; -- PK : can not be dupli
 
 ALTER TABLE students MODIFY student_id int PRIMARY KEY;
 ALTER TABLE students rename COLUMN salary to marks;
-
 ALTER TABLE students MODIFY name varchar(10) NOT NULL;
+
+ALTER TABLE teachers rename COLUMN teacher_id to id;
+
 
 delete from students; -- deletes only data present in table
 drop table students; -- deletes all data and removes the table itself from schema
 truncate table students; -- deletes only data from the table
 
 CREATE TABLE students(
-                         name varchar(10) NOT NULL UNIQUE,
+                         name varchar(10) NOT NULL,
                          id int PRIMARY KEY auto_increment,
                          dept varchar(3) NOT NULL,
                          marks int
@@ -64,6 +70,8 @@ INSERT INTO students (dept,name,marks) values ('ECE','saransh',88);
 
 ALTER TABLE students modify marks int NULL;
 alter table students modify id int primary key auto_increment;
+alter table teachers modify id int primary key auto_increment;
+
 desc students;
 INSERT INTO students (dept,id,name,marks) values ('ME',110,'Reshma','');
 select name from students;
@@ -71,7 +79,10 @@ select * from students where id = 101;
 select * from students where id = 110;
 
 delete from students;
+delete from teachers;
+
 alter table students auto_increment=1000;
+alter table teachers auto_increment=5000;
 
 ------------------------------------------
 select * from students;
@@ -97,9 +108,94 @@ SELECT name,marks from students where marks NOT IN (89,90,91,92);
 SELECT name,marks from students where marks not in (88,90) and marks < 100;
 
 
+drop table students;
+drop table teachers;
+desc teachers;
+desc students;
+delete from teachers;
+
+ALTER TABLE teachers modify dept varchar(3) NOT NULL;
+ALTER TABLE teachers modify name varchar(10) NOT NULL;
+ALTER TABLE teachers modify salary int NOT NULL;
 
 
+INSERT INTO students (dept,name,marks) values ('ME','Reshma',80);
+INSERT INTO students (dept,name,marks) values ('ECE','Rahul',82);
+INSERT INTO students (dept,name,marks) values ('CSE','Rakesh',79);
+INSERT INTO students (dept,name,marks) values ('CSE','Mohit',87);
+INSERT INTO students (dept,name,marks) values ('CSE','Mukesh',73);
+INSERT INTO students (dept,name,marks) values ('EE','Rajesh',80);
+INSERT INTO students (dept,name,marks) values ('ECE','Suresh',98);
+
+INSERT INTO teachers (dept,salary,name) values
+                                            ('ECE',2000,'Sanju'),
+                                            ('CSE',5686,'Sanajana'),
+                                            ('CSE',8769,'Sharma'),
+                                            ('ME',5423,'Manjeet'),
+                                            ('EE',78687,'Rahul');
+
+SELECT count(*) from teachers;
+
+select distinct dept from students;
+SELECT count(distinct dept) as result from students;
+SELECT name as naam, dept as branch from students;
+desc students;
+
+SELECT name,marks from students order by name asc;
+SELECT name,salary from teachers order by salary desc;
+
+select dept, count(id) from students group by dept;
+
+SELECT count(*) from students;
+
+select dept, count(id) from students group by dept order by count(id) ;
+select dept, count(id) from students group by dept ;
+select dept, count(id) from students group by dept having count(id)>1  order by count(id) desc;
+
+-- order by : if we need results in specific order based on a column condition
+-- if nothing is mentioned : asc , asc : ascending, desc: descending
+
+-- group by: if we want results to be grouped in a specific way
+-- having : if we want to put condition on grouping
+-- ordering always happens after grouping
+
+SELECT ALL name from students;
+
+SELECT * from students where marks > 80;
+SELECT name,marks from students where marks in (80,82,73,80);
+
+SELECT name,marks from students where marks in (SELECT marks from students where name like 'R%');
+
+SELECT marks from students where name like 'R%';
+SELECT AVG(marks) from students; -- 81.8571
+SELECT MAX(marks) from students;
+SELECT MIN(marks) from students;
+select name,marks from students where marks in (SELECT MAX(marks) from students);
+select name,marks from students order by marks desc limit 1;
+select name,marks from students where marks not in (SELECT MAX(marks) from students) order by marks desc limit 1;
+SELECT name ,marks from students where marks > (SELECT AVG(marks) from students);
+
+SELECT dept,AVG(marks) from students group by dept order by AVG(marks) desc;
 
 
+SELECT dept,AVG(marks) from students group by dept having AVG(marks) > (SELECT AVG(marks) from students)  order by AVG(marks) desc;
 
+-- find student having 3rd max marks
+-- find student having 3rd min marks
 
+-- SELECT marks in (SELECT * from students order by marks desc) from students where row_number = 3;
+
+-- select marks from students order by marks desc limit 2,1;
+select * from students;
+
+select MIN(marks) from students where marks in (select marks from students order by marks desc limit 3);
+select max(marks) from students where marks in (select marks from students order by marks asc limit 3);
+
+-- 3rd highest
+select marks from students order by marks desc limit 2,1; -- skips 1st 2 rows and then filter 1st from remaining rows
+
+select marks from students order by marks desc limit 3,1; -- 4th maximum
+select marks from students order by marks asc limit 3,1; -- 4th minimum
+
+select distinct marks from students order by marks asc limit 3,1; -- 4th minimum
+select distinct marks from students order by marks desc limit 3,1; -- 4th maximum
