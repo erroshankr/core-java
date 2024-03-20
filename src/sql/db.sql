@@ -1,8 +1,8 @@
 CREATE TABLE teachers(
-                         name varchar(10),
-                         id int primary key unique auto_increment,
-                         dept varchar(3),
-                         salary int
+  name varchar(10),
+  id int primary key unique auto_increment,
+  dept varchar(3),
+  salary int
 );
 
 ALTER TABLE teachers ADD subject varchar(10);
@@ -53,10 +53,10 @@ drop table students; -- deletes all data and removes the table itself from schem
 truncate table students; -- deletes only data from the table
 
 CREATE TABLE students(
-                         name varchar(10) NOT NULL,
-                         id int PRIMARY KEY auto_increment,
-                         dept varchar(3) NOT NULL,
-                         marks int
+  name varchar(10) NOT NULL,
+  id int PRIMARY KEY auto_increment,
+  dept varchar(3) NOT NULL,
+  marks int
 );
 
 desc students;
@@ -128,11 +128,11 @@ INSERT INTO students (dept,name,marks) values ('EE','Rajesh',80);
 INSERT INTO students (dept,name,marks) values ('ECE','Suresh',98);
 
 INSERT INTO teachers (dept,salary,name) values
-                                            ('ECE',2000,'Sanju'),
-                                            ('CSE',5686,'Sanajana'),
-                                            ('CSE',8769,'Sharma'),
-                                            ('ME',5423,'Manjeet'),
-                                            ('EE',78687,'Rahul');
+				   ('ECE',2000,'Sanju'),
+				   ('CSE',5686,'Sanajana'),
+				   ('CSE',8769,'Sharma'),
+				   ('ME',5423,'Manjeet'),
+				   ('EE',78687,'Rahul');
 
 SELECT count(*) from teachers;
 
@@ -246,4 +246,108 @@ SELECT CONCAT(name,dept) from students;
 SELECT REPLACE(name,'R','r') from students;
 SELECT upper(name) from students;
 SELECT REVERSE(name),REVERSE(marks) from students;
+
+-- JOIN
+
+desc students;
+desc teachers;
+SELECT * from teachers;
+SELECT * from students;
+
+CREATE index teacher_dept_idx ON teachers (dept);
+ALTER table students ADD FOREIGN KEY (dept) references teachers(dept);
+-- column belonging to Foreign key must have index defined on it on referenced table
+SELECT * from students where name = 'Rakesh';
+SELECT * from students where id=1006;
+SELECT * from students where dept='ECE';
+
+SELECT s.name as student,t.name as teacher,t.id as teacher_id,s.id as student_id,s.dept as stf_dpt,t.dept as tch_dpt from students as s INNER JOIN teachers as t ON s.dept=t.dept where s.dept='ECE';
+SELECT * from students as s JOIN teachers as t ON s.dept=t.dept where s.dept='ECE';
+
+
+SELECT s.name as student,t.name as teacher,t.id as teacher_id,s.id as student_id,s.dept as stf_dpt,t.dept as tch_dpt from students as s RIGHT JOIN teachers as t ON s.dept=t.dept ;
+
+
+SELECT s.name as student,t.name as teacher,t.id as teacher_id,s.id as student_id,s.dept as stf_dpt,t.dept as tch_dpt from students as s LEFT JOIN teachers as t ON s.dept=t.dept;
+
+
+INSERT INTO teachers (dept,name,salary) values ('CE','Anupam',12345);
+INSERT INTO students (teachers.dept,name,marks) values ('IT','Atul',99);
+UPDATE students set dob = '1997-12-16 05:35:15' where dept = 'IT';
+UPDATE students set dept = 'IT' where id = 1006;
+
+
+SELECT t.name as teacher_name,s.name as student_name,s.dept from teachers as t RIGHT JOIN students as s ON t.dept=s.dept;
+SELECT t.name as teacher_name,s.name as student_name,t.dept from students as s RIGHT JOIN teachers as t ON s.dept=t.dept;
+
+SELECT * from teachers as t LEFT OUTER JOIN students as s ON t.dept=s.dept
+UNION
+SELECT * from teachers as t LEFT OUTER JOIN students as s ON t.dept=s.dept;
+
+
+SELECT * from teachers as t CROSS JOIN students ; -- cross join equivalent to cartesian join
+
+SELECT * from teachers as t1 JOIN teachers as t2 ON t1.salary=t2.salary; -- self join based on salary
+SELECT * from teachers as t1 JOIN teachers as t2 ON t1.id=t2.id; -- self join based on id
+UPDATE teachers set salary = 2000 where id=5004;
+
+SELECT * from teachers as t1 JOIN teachers as t2 ON t1.dept=t2.dept; -- self join based on salary
+
+
+SELECT user();
+
+CREATE USER 'test' IDENTIFIED BY 'test123';
+GRANT SELECT ON sampleDB.* TO 'test';
+FLUSH PRIVILEGES;
+
+
+Relations:
+ O-O
+ O-M
+ M-O
+ M-M
+
+
+Semester vs Sub
+1 Sem -> more than 1 subject :
+Sem : Sub --> O-M
+Sub : Sem -> O-O
+
+1 Restaurant : more than 1 Menu -> O-M
+1 Menu: more than 1 restaurant --> O-M
+
+Resaurant : Menu --> M:M
+
+(a + b) * (c + d)
+A*c + a*d + b*c + b*d
+
+Student:
+ Ram  101 EC 100
+ Shyam 102 CS 98
+
+Teacher:
+Rehman 103     EC 1000
+Sunita.   104.    CE  5000
+Sekhar    105     IT 10000
+
+Name id. Dept. marks  name id dept salary
+Ram.  101. EC.  100.     Rehman 103 EC 1000
+Ram.  101. EC.  100.     Sunita 104 CE 5000
+Ram.  101. EC.  100.     Sekhar 105 IT 10000
+Shyam 102 CS 98.         Rehman 103 EC 1000
+Shyam 102 CS 98.        Sunita 104 CE 5000
+Shyam 102 CS 98.       Sekhar 105 IT 10000
+
+T1:
+Rehman 103     EC 1000
+Sunita.   104.    CE  1000
+Sekhar    105     IT 10000
+Roshan.  110.  IT 10000
+
+T2:
+Rehman 103     EC 1000
+Sunita.   104.    CE  1000
+Sekhar    105     IT 10000
+Roshan.  110.  IT 10000
+
 
