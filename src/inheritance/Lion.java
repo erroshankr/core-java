@@ -5,44 +5,63 @@ import javax.xml.namespace.QName;
 import java.util.stream.IntStream;
 
 // super: immediate parent
-// Overriding:: Inheritance -> parent-child relation ship
+// Overriding:: Inheritance -> parent-child relationship
 // Overloading :: Polymorphism -> may or may not have parent child relationship
+// this,super: both of these can be used to access variables/methods of current & parent class respectively.
+// this,super : constructor call using this/super must be made from within a constructor only and it should be the 1st line.
 public class Lion extends Animal{ // default(Zero arg) constructor is mandatory in parent class for inheritance to work.
 
-    String name;  // Simba
-    boolean isWild;
+    // super  := Animal a1 = new Animal(); : a1 -> super
+    // this   := Lion l1 = new Lion(); : l1-> this
+    public String name;  // Simba
+    public boolean isWild;
 
-    Lion(){
+    public Lion(){
      //    Lion l2 = new Lion("Lion-8");
-        this("Lion-8"); // call to 2nd constructor from one must be the 1st call within 1st constructor
+    //    this("Lion-8"); // call to 2nd constructor from one must be the 1st call within 1st constructor
         System.out.println("Inside zero argument constructor of Lion");
      //   super.printDetails("Tiger","Red");
     }
 
-    Lion(String name){
-        super("Dog");
+    public Lion(String name){
+      //  Animal a1 = new Animal("Fox","White");
+        super("Fox","white");
         System.out.println("Inside single argument constructor of Lion");
         this.name = name;
    //     super.name="Simbi";
         System.out.println("name of parent is :"+ super.name );
-        super.printDetails(name,"");
+      //  printDetails(name,"Black");
+       /* Lion l1 = new Lion();
+        l1.printDetails("Fox","White");*/
+       /* Animal a1 = new Animal();
+        a1.printDetails("Fox","White");*/
+        super.printDetails("Fox","White"); // a1 is equivalent to super
+        System.out.println(super.name);
     }
 
     // name & return type : same & one in remaining 3 signature field must be false
-    void printDetails(String name, String color, boolean isWild){  // overloading
+    public void printDetails(String name, String color, boolean isWild){  // overloading
+  //      this("Lion-10"); --> constructor call using this/super can be made only from another constructor, not from any methods.
         System.out.println("Name: " + name + " & Color: " + color + " & isWild: " + isWild);
+        super.printDetails("Fox","White"); // a1 is equivalent to super
+        System.out.println(super.name);
+
     }
 
     //  signature: name, return type, access-specifier, number of parameters, sequence of data type of parameters : must be same
-    void printDetails(String name, boolean isWild, String color){  // method overriding -> signature of methods in parent & child class is exactly same
+    public void printDetails(String name, boolean isWild, String color){  // method overriding -> signature of methods in parent & child class is exactly same
         System.out.println("Name: " + name + " & Color: " + color + " & isWild: " + isWild);
+        super.printDetails("Fox","White"); // a1 is equivalent to super
+        System.out.println(super.name);
     }
 
 
-  /*  @Override
-    void printDetails(String name, String color){
+   @Override
+    public void printDetails(String name, String color){
         System.out.println("Name: " + name + " & Color: " + color  + " from Lion class");
-    }*/
+     //  super.printDetails("Fox","White"); // a1 is equivalent to super
+     //  System.out.println(super.name);
+    }
     public static void main(String[] args) {
     //    Lion l2 = new Lion();
      //   Lion l1 = new Lion(true);
@@ -82,4 +101,6 @@ public class Lion extends Animal{ // default(Zero arg) constructor is mandatory 
 // super : acts as a reference/object of the immediate parent class
 // this: acts as an reference/object of the current class
 // Java doesn't support multiple inheritance  , however it gives essence of this thro interface
+// However , it supports multi-level inheritance
+// Hybrid: multiple + multilevel
 }

@@ -2,28 +2,28 @@ package inheritance;
 
 public class Animal {
 
-     String name; // Simbi
-     String color;
+     public String name; // Simbi
+     public String color;
 
-    Animal(){
+    public Animal(){
         System.out.println("Inside zero argument constructor of Animal");
     }
 
-    Animal(String name){
+    public Animal(String name){
         System.out.println("Inside single argument constructor of Animal");
         this.name= name;
     }
-    Animal(String name, String color){
+    public Animal(String name, String color){
         System.out.println("Inside two argument constructor of Animal");
         this.name= name;
         this.color = color;
     }
 
-     void printDetails(String name, String color){
+     public void printDetails(String name, String color){
         System.out.println("Name: " + name + " & Color: " + color + " from Animal class");
     }
 
-    void printDetails(String name, String color, boolean isWild, int noOfLegs){
+    public void printDetails(String name, String color, boolean isWild, int noOfLegs){
         System.out.println("name: " + name + " & color: " + color + " & wild: " + isWild + " & no of legs: " +noOfLegs );
     }
 
