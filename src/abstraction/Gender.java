@@ -22,6 +22,7 @@ package abstraction;
 // Manager,clerk : Data hiding --> encapsulation --> data protection
 public abstract class Gender { // if a class has at-least one abstract method, class must be declared as 'abstract'.
 
+    // Gender --> Male,Female,ThirdGender
     public abstract void printGender(); // Abstract class may or may not have abstract methods.
     // only method defination,  no body
 
@@ -32,3 +33,5 @@ public abstract class Gender { // if a class has at-least one abstract method, c
     public abstract void tellMyName();
 
 }
+
+// An abstract class can extend another abstract class and vice-versa.
