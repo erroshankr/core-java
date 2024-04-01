@@ -16,7 +16,7 @@ package abstraction;
 //7: All abstract methods in abstract class have to be implemented by its derivative/child class by extending abstract class.
 //8. If derivative class is not implementing any of abstract methods of parent, then derivative class also must be abstract
 //9: abstract method: 'abstract' keyword in method, method without body , just having defination.
-//10: abstract class can not have non abstract method without body.
+//10: abstract class can not have non abstract method without body
 
 // Bank Account: 5L : user
 // Manager,clerk : Data hiding --> encapsulation --> data protection
