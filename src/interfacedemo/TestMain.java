@@ -26,6 +26,7 @@ public class TestMain {
      // s2.findArea(4,5);  NOT ALLOWED
         s2.printMyFig();
 
+     //   Shape s3 = new Size();
 
 
     }
