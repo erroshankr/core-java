@@ -12,8 +12,8 @@ public class Circle implements Shape,Size{
         System.out.println("My radius is: " + x);
     }
 
-    @Override
+   /* @Override
     public void printMyFig() {
         System.out.println("I am circle");
-    }
+    }*/
 }

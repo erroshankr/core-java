@@ -2,6 +2,10 @@ package interfacedemo;
 
 public interface Figure {
 
-    void printMyFig();
+    default void printMyFig(){  // non-abstract
+        System.out.println("Inside Figure Interface");
+    }
+    //   public abstract void printMyFig();
+    //  void add(int x, int y);  // abstract
 
 }

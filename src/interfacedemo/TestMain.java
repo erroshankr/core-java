@@ -28,6 +28,9 @@ public class TestMain {
 
      //   Shape s3 = new Size();
 
+        Circle c2 = new Circle();
+        c2.printMyFig();
+
 
     }
 }
