@@ -19,4 +19,4 @@ public class ItStudent extends Student {
 // private : same class
 // public: everywhere
 // default: same package
-//protected : same package and different package using extend
+// protected : same package and different package using extend
