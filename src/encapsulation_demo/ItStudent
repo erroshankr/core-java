@@ -1,9 +1,0 @@
-package encapsulation_demo;
-
-public class ItStudent extends Student{
-    
-    public static void main(String[] args){
-        ItStudent s2 = new ItStudent();
-        System.out.println("name: " + s2.name + " , rollNo: " + s2.rollNo + " , totalmarks: " + s2.totalmarks + " , grade: " + s2.grade);
-    }
-}

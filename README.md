@@ -8,10 +8,10 @@ Topics included:
 1.  Object & Class : Done
 2.  OOP Principles : Done
 3.  Abstraction : Done   
-4.  Encapsulation : 
+4.  Encapsulation : Done 
 5.  Inheritance : Done
 6.  Polymorphism : Done
-7.  Interface : 
+7.  Interface : Done
 8.  Exception Handling : 
 9.  String
 10. Collections API:
