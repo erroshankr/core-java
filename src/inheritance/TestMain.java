@@ -21,6 +21,7 @@ public class TestMain {
         a2.printDetails("Animal-Dog","Black"); // Dog.java // Run time polymorphism
 
         Animal a3 = new Lion();
+        // Exception e = new ArrayIndexOutOfBoundsException();
         a3.printDetails("Animal-Lion", "Green"); // Lion.java
 
       //  Lion l2 = new Dog();
