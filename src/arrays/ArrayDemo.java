@@ -18,6 +18,32 @@ public class ArrayDemo {
     }
        public static void main(String[] xyz) { // entry
         System.out.println("inside main");
+        ArrayDemo a1 = new ArrayDemo();
+        Lion l1 = new Lion("LT3", "Brown");
+        Object[] obar = new Object[5];
+        obar[0] = a1;
+        obar[1]=l1;
+        obar[2]=5;
+        obar[3]= false;
+        obar[4]="roshan";
+
+        Lion[] lr = new Lion[5];
+        lr[0]=5;
+        lr[1]="roshan";
+        lr[2]=new Animal();
+
+        Animal[] ar = new Animal[5];
+        ar[0] = 5;
+        ar[1]="roshan";
+        ar[2]=l1; // parent child relationship
+        ar[3]=new Animal(); // same type
+
+        String[] strAr = new String[5];
+
+
+
+
+
            System.out.println("length of string array :" + xyz.length);
            for (int i = 0; i < xyz.length; i++) {
                System.out.println(xyz[i]);
