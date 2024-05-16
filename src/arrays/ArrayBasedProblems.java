@@ -8,9 +8,21 @@ public class ArrayBasedProblems {
      Problem 1
      int[] = {3,2,5,7}
      */
-    public boolean isAscendingSortedArray(int[] input){
+    public boolean isAscendingSortedArray(int[] input){ //
         // if sorted return 'true' else 'false'
-        return false;
+        if(input == null){
+            return false;
+        }
+        if(input.length==1){
+            return true;
+        }
+        // {5,5,6,8} : length = 4, index : 0,1,2,3
+        for (int i = 0; i < input.length-3; i++) {
+            if(input[i+3] > input[i]){
+                return false;
+            }
+        }
+        return true;
     }
 
     /* Problem 2
@@ -44,8 +56,19 @@ public class ArrayBasedProblems {
     Complete the code below to return the swapped array formed by exchanging the elements at x & y respectively. If given indices are invalid
     return empty array.
      */
-    public int[] swapElements(int[] input,int x, int y){
-      return null;
+    public int[] swapElements(int[] input,int x, int y){ // 1,3,3,8  - 2,0    :5, y=0:1, --> 5,3,1,8
+
+        /**
+         * pehle input[2] ka value nikaal k kahi store karenge
+         * input[0] ko input[2] daal diye
+         * stored value ko input[0] me daal do
+         */
+          int tmp = input[2];
+          input[2] = input[0];
+          input[0] = tmp;
+
+
+      return input;
     }
 
     /*
@@ -58,10 +81,22 @@ public class ArrayBasedProblems {
       return null;
     }
 
+    public boolean checkTriplet(int a, int b , int c){
+    /*    int num = Math.max(a,b);
+        num = Math.max(num,c);*/
+        if(Math.pow(a,2) + Math.pow(b,2) == Math.pow(c,2)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    // Arrays.sort : 23345576476476467474 : 2
     public static void main(String[] args) {
         ArrayBasedProblems a1 = new ArrayBasedProblems();
         int[] ar = {1,2,3,4,5};
-        System.out.println(a1.findElementCount(ar,-5));
+      //  System.out.println(a1.findElementCount(ar,-5));
+        System.out.println(a1.checkTriplet(3,4,6));
     }
 
 }

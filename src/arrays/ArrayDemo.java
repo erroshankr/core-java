@@ -27,7 +27,7 @@ public class ArrayDemo {
         obar[3]= false;
         obar[4]="roshan";
 
-        Lion[] lr = new Lion[5];
+     /*   Lion[] lr = new Lion[5];
         lr[0]=5;
         lr[1]="roshan";
         lr[2]=new Animal();
@@ -37,7 +37,7 @@ public class ArrayDemo {
         ar[1]="roshan";
         ar[2]=l1; // parent child relationship
         ar[3]=new Animal(); // same type
-
+*/
         String[] strAr = new String[5];
 
 
