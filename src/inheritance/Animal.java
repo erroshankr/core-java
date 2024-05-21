@@ -1,6 +1,7 @@
 package inheritance;
 
-public class Animal {
+public class Animal {  // Animal a1 = new Animal();
+     //a1.name
 
      public String name; // Simbi
      public String color;
