@@ -89,7 +89,7 @@ public class StringProp {
             res[i] = x1.charAt(i);
         }*/
 
-        //     System.out.println(Arrays.toString(res));
+        //     System.out.println(Arrays.toString(res)); r,o,s,h,a,n
         //     System.out.println(Arrays.toString(x1.toCharArray()));
 
         // a:97, A:65 = 32
@@ -166,7 +166,7 @@ public class StringProp {
 
         System.out.println("Q2: " + res);
 
-       String[] arr = s.split(" "); //{My, name, is, Sachin}
+       String[] arr = s.split(" "); //{My, name, is, Sachin}       5.Make last character of each word small
     //   String[] revAr = new String[arr.length]; // {Sachin, is, name, My}
         String resQ3 = "";
         int j = 0;
@@ -194,9 +194,24 @@ public class StringProp {
         String resQ5 = "";
         for (int i = 0; i < arr.length; i++) { //{My, name, is , Sachin}
 
-            resQ5 = resQ5 + arr[i].substring(0,arr[i].length()-1) + arr[i].substring(arr[i].length()-1).toUpperCase() +" ";
+            resQ5 = resQ5 + arr[i].substring(0,arr[i].length()-1) + arr[i].substring(arr[i].length()-1).toUpperCase() +" "; // Sachi+N = SachiN
         }
 
         System.out.println("Q5: " + resQ5);
+
+        String s1 = "abcdef";
+        String s2 = "abcdeg";
+
+        System.out.println(s1.compareTo(s2));
+        // compareTo returns integer
+        // if res == 0 --> both strings have same character sequence
+        // if res > 0 --> 2nd parameter will come first lexicographically
+        // if res < 0 -> 1st parameter will come first lexicographically
+
+
+
+
+
+
     }
 }
