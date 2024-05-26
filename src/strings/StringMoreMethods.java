@@ -1,5 +1,7 @@
 package strings;
 
+import java.util.Arrays;
+
 public class StringMoreMethods {
 
     public static void main(String[] args) {
@@ -56,5 +58,32 @@ public class StringMoreMethods {
         System.out.println(s10.endsWith("roshan")); // false
         System.out.println(s10.endsWith("jha")); // true
         System.out.println(s10.endsWith("roshankumarjha")); // true
+
+        int[] ar = {2,4,4,9,9,6}; // 3rd max : 2
+        System.out.println(Arrays.toString(ar));
+        Arrays.sort(ar);
+        System.out.println(Arrays.toString(ar));
+        find3rdmax(ar);
+
+    }
+
+    public static void find3rdmax(int[] input){ // {2,4,4,9,9,6}
+        int max = 0; // 2 -> 4 -> 9
+        int max2 = 0; // 0 -> 2 -> 4
+        int max3 = 0;
+
+        for (int i = 0; i < input.length; i++) {
+            if(input[i] > max){
+                max3 = max2;
+                max2 = max;
+                max = input[i];
+            } else if (input[i] < max && input[i] > max2) {
+                max3 = max2;
+                max2 = input[i];
+            } else if(input[i] < max2 && input[i] > max3){
+               max3 = input[i];
+            }
+        }
+        System.out.println(max3);
     }
 }
