@@ -165,3 +165,10 @@ public class ListDemo {
 // index based operations can be performed (fetching value by index, removing value by index)
 // contains only objects
 // no size restriction, adjusts size automatically
+
+//{1,3,4,2,4,5} -< {3,1,4,2,4,5}
+// li.get(1) = 3
+//{1,3,4,2,5}  -> li.get(4) -> 5, actually we inserted 4
+
+// arr[i] --> li.get(i)
+
