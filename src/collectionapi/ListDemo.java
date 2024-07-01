@@ -172,3 +172,22 @@ public class ListDemo {
 
 // arr[i] --> li.get(i)
 
+// Student --> name, dept, marks
+// Ram, ECE, 80 - s1
+// Shyam, CS, 70 -s2
+// Raghav, ME, 91 - s3
+// Rupa, CS, 90 - s4
+// List<Student> students
+
+//[Raghav,Rupa,Ram,Shyam] --> sort by marks in descending
+//[Raghav,Ram,Rupa,Shyam] --> sort by name asc
+//[Shyam,Rupa,Ram,Raghav]
+
+// 80 : Ram
+// 91 : Shyam
+// 91 : Raghav
+// 90 : Rupa
+
+// Collections.sort(map.keySet())
+// Collections.reversed(new ArrayList<>(set)); : 91,90,80,70
+// map.get(91)

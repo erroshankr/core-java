@@ -82,11 +82,15 @@ public class SetDemo {
         }
         System.out.println(l3);
         System.out.println(set3);
-    //    System.out.println(printData(inp2));
-    //    System.out.println(new TreeSet<>(printData(inp2)));
+    //  System.out.println(printData(inp2));
+    //  System.out.println(new TreeSet<>(printData(inp2)));
 
-        // index rearangement in set is becoz of its add method implementation that uses map to store value which in turn uses hashing.
+        // index re-arrangement in set is becoz of its add method implementation that uses map to store value which in turn uses hashing.
         // how hashing is used will be discussed during Map implementation.
+
+        Set<String> set4 = new HashSet<>();
+        System.out.println(set4.add("Roshan")); // 1
+        System.out.println(set4.add("Roshan")); // 2
     }
 
 
