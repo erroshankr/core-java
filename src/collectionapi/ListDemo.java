@@ -55,13 +55,13 @@ public class ListDemo {
        // l3.add("ram");
         Student s1 = new Student();
         s1.setName("Ram");
-        s1.setRollNo(2);
+       // s1.setRollNo(2);
         Student s2 = new Student();
         s2.setName("Shyam");
-        s2.setRollNo(4);
+       // s2.setRollNo(4);
         Student s3 = new Student();
         s3.setName("harshit");
-        s3.setRollNo(3);
+       // s3.setRollNo(3);
         l3.add(s1);
         l3.add(s2);
         l3.add(s3);
