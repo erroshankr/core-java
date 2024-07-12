@@ -22,6 +22,7 @@ public class MapDemo2 {
     }
 }
 
+//Collections.retainAll(l1,l2)
 
 /*
  * Count Frequency of Elements in a List:
@@ -54,6 +55,6 @@ public class MapDemo2 {
  * Group Transactions by User and Month:
 Given a list of transactions where each transaction has a user, date, and amount, write a function to group transactions by user and month.
 *
-*
+*s1.retainAll(s2)  --> s1 (common in both s1, s2)
 *
  */

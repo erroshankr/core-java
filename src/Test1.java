@@ -1,34 +1,32 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Test1 {
     public static void main(String[] args) {
-        int num = 15; //[1,2,3,4,5],[4,5,6],[7,8],[15]
-        List<List<Integer>> result = findCombo(num);
-        for (List<Integer> l: result) {
-            System.out.println(Arrays.toString(l.toArray()));
-        }
+        int[] ar = {1,0,0,1,0,1,1};
+    //    int[] ar = {1,0,0,1,1,0,0,1};
+        System.out.println(findCount(ar));
     }
-    public static List<List<Integer>> findCombo(int n){
-        List<List<Integer>> result = new ArrayList<>();
 
-        for (int i = 1; i <= n ; i++) {
-            int sum = 0;
-            List<Integer> tempList = new ArrayList<>();
+    public static int findCount(int[] ar){
+        Map<Integer,Integer> map = new HashMap<>();
+        int result = 0; // 1 + 2 = 3
+        int sum = 0;
 
-            for (int num = i; num <= n; num++) {
-                sum += num;
-                tempList.add(num);
+        map.put(0,1); // sum, count    0:3, 1:1, -1:1,
 
-                if(sum == n){
-                    result.add(new ArrayList<>(tempList));
-                    break;
-                }
+        for (int x : ar){
+            if(x == 0){
+                sum = sum -1;
+            }
+            if(x == 1){
+                sum = sum + 1; // 1 -> 0 -> -1 -> 0 -> -1 -> 0 -> 1
+            }
 
-                if(sum > n){
-                    break;
-                }
+            if(map.containsKey(sum)){
+                result = result + map.get(sum);
+                map.put(sum, map.get(sum) + 1);
+            }else{
+                map.put(sum, 1);
             }
         }
 
