@@ -71,11 +71,11 @@ public class RecDemo {
         }else{
             return fibonacciSeq(n-1) + fibonacciSeq(n-2);
         }
-    }
+    }  // fibonacciSeq(5)
 
     public static void printFibonacciSeries(int n){
         for (int i = 0; i <= n; i++) {
-            System.out.println(fibonacciSeq(i));
+            System.out.println(fibonacciSeq(i)); // n*i
         }
     }
 
