@@ -80,7 +80,21 @@ public class RecDemo {
     }
 
     // binary search using recursion
+    public static int binarySearch(int[] array, int target, int left, int right) {
+        if (left > right) {
+            return -1; // Target not found
+        }
 
+        int mid = left + (right - left) / 2;
+
+        if (array[mid] == target) {
+            return mid; // Target found
+        } else if (array[mid] > target) {
+            return binarySearch(array, target, left, mid - 1); // Search in the left half
+        } else {
+            return binarySearch(array, target, mid + 1, right); // Search in the right half
+        }
+    }
     //  0, 1, 1, 2, 3, 5, 8, 13
 
     // num =2, factor =2 --> 2,4,8,16,32,64
