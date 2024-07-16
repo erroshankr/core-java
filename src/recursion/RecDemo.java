@@ -79,6 +79,8 @@ public class RecDemo {
         }
     }
 
+    // binary search using recursion
+
     //  0, 1, 1, 2, 3, 5, 8, 13
 
     // num =2, factor =2 --> 2,4,8,16,32,64

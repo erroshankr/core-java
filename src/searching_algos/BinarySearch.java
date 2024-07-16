@@ -4,7 +4,9 @@ package searching_algos;
 // array must be sorted.
 // step 1: divide array into 2 parts
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class BinarySearch {
 
@@ -13,12 +15,16 @@ public class BinarySearch {
         Arrays.sort(ar);
         BinarySearch l1 = new BinarySearch();
         System.out.println(l1.binarySearch(ar,5));
+
+        Arrays.binarySearch(ar,4);
     }
 
     public int binarySearch(int[] ar, int i) {  // {0,1,2,4,9,11,13,14,15} :  3
        int mid = -1;
        int start = 0;
        int end = ar.length-1;
+
+    //   List<Integer> l1 = new ArrayList<>(); O(n)
 
        while (start <= end){
            mid = start + ((end - start)/2);
